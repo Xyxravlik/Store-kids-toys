@@ -1,28 +1,42 @@
 
-body { margin: 0; font-family: Arial, sans-serif; background: #f8fcff; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; background: #f8f9fa; }
 header {
   background: white; display: flex; justify-content: space-between;
-  align-items: center; padding: 10px 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  align-items: center; padding: 10px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-header img { height: 70px; }
+header img { height: 60px; }
 nav a {
-  margin-left: 20px; text-decoration: none; font-weight: bold; color: #333;
+  margin-left: 15px; text-decoration: none; color: #333; font-weight: bold;
 }
 .container { padding: 20px; }
-.products {
-  display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
+.controls {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;
+  align-items: center; justify-content: center;
 }
-.product-card {
-  background: white; border-radius: 10px; padding: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: 180px; text-align: center;
+.controls input[type="text"] {
+  padding: 8px; width: 200px; border:1px solid #ccc; border-radius: 5px;
 }
-.product-card img {
-  width: 100px; height: 100px; object-fit: contain;
+.controls label { margin-right: 10px; }
+.controls input[type="range"] { width: 150px; }
+.products, .cart-items, .fav-items {
+  display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 15px;
 }
-.product-card p {
-  margin: 5px 0;
+.product-card, .cart-card, .fav-card {
+  background: white; border-radius:8px; padding:10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
 }
-button {
-  margin-top: 5px; padding: 5px 10px; background: #4fc3f7;
-  border: none; color: white; border-radius: 5px; cursor: pointer;
+.product-card img, .cart-card img, .fav-card img {
+  width:100%; height: auto; max-height: 150px; object-fit: cover; border-radius:5px;
+}
+button { padding:8px 12px; border:none; border-radius:5px; cursor:pointer; background:#007bff; color:white; }
+button.remove { background:#dc3545; }
+footer {
+  background: #007bff; color: white; text-align: center; padding: 10px; margin-top: 20px;
+}
+@media(max-width:600px) {
+  .controls { flex-direction: column; }
+  header { flex-direction: column; }
+  header img { margin-bottom: 10px; }
 }

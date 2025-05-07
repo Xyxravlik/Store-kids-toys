@@ -1,79 +1,34 @@
-
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Kids Toys</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
-</head>
-<body>
-  <header>
-    <a href="index.html"><img src="images/logo.png" alt="Kids Toys Logo"></a>
-    <nav>
-      <a href="index.html">Главная</a>
-      <a href="boys.html">Для мальчиков</a>
-      <a href="girls.html">Для девочек</a>
-    </nav>
-  </header>
-  <div class="container" style="text-align: center; padding: 40px 20px;">
-    <input type="text" placeholder="Поиск товаров..." style="width:60%; padding:10px; border-radius:8px; border:1px solid #ccc;">
-    <h1 style="margin-top: 40px;">Добро пожаловать в Kids Toys!</h1>
-    <p style="font-size: 18px;">Игрушки, которые радуют детей и родителей</p>
-    <a href="boys.html"><button style="margin:10px;">Игрушки для мальчиков</button></a>
-    <a href="girls.html"><button style="margin:10px;">Игрушки для девочек</button></a>
-  </div>
+<head><meta charset="UTF-8"><title>Kids Toys</title>
+<link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
+<body data-gender="">
 
-  <div class="chatbot" id="chatBox">
-    <div class="chatbot-header">Ассистент</div>
-    <div class="chatbot-body" id="chatContent"></div>
-    <div class="chatbot-input">
-      <input type="text" id="chatInput" placeholder="Ваш вопрос...">
-      <button onclick="sendMessage()">📤</button>
-    </div>
-  </div>
-  <button class="chatbot-icon" id="chatIcon" onclick="toggleChat()">🤖</button>
-  <audio id="chatSound" src="https://notificationsounds.com/storage/sounds/file-sounds-1154-pristine.mp3" preload="auto"></audio>
+<header>
+  <a href="index.html"><img src="images/logo.png" alt="Kids Toys Logo"></a>
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="boys.html">Мальчики</a>
+    <a href="girls.html">Девочки</a>
+    <a href="favorites.html">Избранное</a>
+    <a href="cart.html">Корзина</a>
+  </nav>
+</header>
 
-  <script>
-    const chatBox = document.getElementById('chatBox');
-    const chatIcon = document.getElementById('chatIcon');
-    const chatContent = document.getElementById('chatContent');
-    const chatInput = document.getElementById('chatInput');
-    const chatSound = document.getElementById('chatSound');
-    let chatOpened = false;
+<div class="container">
 
-    function toggleChat() {
-      chatOpened = !chatOpened;
-      chatBox.style.display = chatOpened ? 'flex' : 'none';
-    }
+<div class="controls">
+  <input type="text" id="search-input" placeholder="Поиск по названиям">
+  <label>Цена до: <span id="price-value">4000</span> ₸</label>
+  <input type="range" id="price-input" min="0" max="5000" value="4000" oninput="document.getElementById('price-value').innerText=this.value">
+  <label>Возраст:</label>
+  <label><input type="checkbox" name="age-filter" value="3">3+</label>
+  <label><input type="checkbox" name="age-filter" value="4">4+</label>
+  <label><input type="checkbox" name="age-filter" value="5">5+</label>
+  <label><input type="checkbox" name="age-filter" value="6">6+</label>
+</div>
 
-    function sendMessage() {
-      const msg = chatInput.value.trim();
-      if (!msg) return;
-      chatContent.innerHTML += `<div><b>Вы:</b> ${msg}</div>`;
-      chatInput.value = '';
-      setTimeout(() => {
-        const reply = getReply(msg);
-        chatContent.innerHTML += `<div><b>Ассистент:</b> ${reply}</div>`;
-        chatContent.scrollTop = chatContent.scrollHeight;
-      }, 500);
-    }
-
-    function getReply(msg) {
-      msg = msg.toLowerCase();
-      if (msg.includes("кукла") || msg.includes("девоч")) return "У нас есть замечательные куклы, пони и домики!";
-      if (msg.includes("машин") || msg.includes("мальчик")) return "Машинки, роботы и динозавры — отличный выбор!";
-      return "Я готов помочь! Напишите, что вас интересует.";
-    }
-
-    setTimeout(() => {
-      if (!chatOpened) {
-        chatBox.style.display = 'flex';
-        chatContent.innerHTML += `<div><b>Ассистент:</b> Здравствуйте, чем могу помочь?</div>`;
-        chatSound.play();
-      }
-    }, 15000);
-  </script>
-</body>
-</html>
+<div class="products" id="product-list"></div>
+</div>
+<footer>&copy; 2025 Kids Toys</footer>
+</body></html>
