@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Игрушки для девочек - Kids Toys</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="boys.html">Для мальчиков</a>
+      <a href="girls.html">Для девочек</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h2>Игрушки для девочек</h2>
+    <div class="products">
+      
+        <div class="product-card">
+          <img src="images/doll.png" alt="Кукла">
+          <p><strong>Кукла</strong></p>
+          <p>1600 ₽</p>
+          <p><span style="background:#e0f7fa;padding:2px 6px;border-radius:5px;">3+</span></p>
+          <button onclick="addToCart('Кукла')">В корзину</button>
+          <button onclick="addToFavorites('Кукла')">В избранное</button>
+        </div>
+        
+        <div class="product-card">
+          <img src="images/train.png" alt="Паровозик">
+          <p><strong>Паровозик</strong></p>
+          <p>1500 ₽</p>
+          <p><span style="background:#e0f7fa;padding:2px 6px;border-radius:5px;">3+</span></p>
+          <button onclick="addToCart('Паровозик')">В корзину</button>
+          <button onclick="addToFavorites('Паровозик')">В избранное</button>
+        </div>
+        
+        <div class="product-card">
+          <img src="images/rockets.png" alt="Запуск ракет">
+          <p><strong>Запуск ракет</strong></p>
+          <p>2200 ₽</p>
+          <p><span style="background:#e0f7fa;padding:2px 6px;border-radius:5px;">5+</span></p>
+          <button onclick="addToCart('Запуск ракет')">В корзину</button>
+          <button onclick="addToFavorites('Запуск ракет')">В избранное</button>
+        </div>
+        
+    </div>
+  </div>
+</body>
+</html>
