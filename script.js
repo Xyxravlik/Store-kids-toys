@@ -1,17 +1,17 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Auto open chat after 20s of inactivity
+  // Inactivity auto-open chat
   let timeout;
-  const resetTimeout = () => {
+  const reset = () => {
     clearTimeout(timeout);
     timeout = setTimeout(() => {
       document.getElementById('chatBox').style.display = 'flex';
       document.getElementById('chatBody').innerHTML = '<div><b>Ассистент:</b> Здравствуйте, чем могу помочь?</div>';
     }, 20000);
   };
-  document.addEventListener('mousemove', resetTimeout);
-  document.addEventListener('keydown', resetTimeout);
-  resetTimeout();
+  document.addEventListener('mousemove', reset);
+  document.addEventListener('keydown', reset);
+  reset();
 
   // Chat toggle
   document.querySelector('.chatbot-icon').addEventListener('click', () => {
