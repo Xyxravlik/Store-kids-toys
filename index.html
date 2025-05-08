@@ -1,34 +1,32 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head><meta charset="UTF-8"><title>Kids Toys</title>
-<link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
-<body data-gender="">
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><title>Kids Toys</title>
+<link rel="stylesheet" href="styles.css"><script src="script.js" defer></script></head><body>
 
 <header>
-  <a href="index.html"><img src="images/logo.png" alt="Kids Toys Logo"></a>
-  <nav>
-    <a href="index.html">Главная</a>
-    <a href="boys.html">Мальчики</a>
-    <a href="girls.html">Девочки</a>
-    <a href="favorites.html">Избранное</a>
-    <a href="cart.html">Корзина</a>
+  <img src="images/logo.png" alt="Logo"><nav class="top-nav">
+    <a href="index.html">Главная</a><a href="boys.html">Мальчики</a>
+    <a href="girls.html">Девочки</a><a href="about.html">О нас</a>
+    <a href="delivery.html">Доставка</a>
   </nav>
 </header>
-
 <div class="container">
-
-<div class="controls">
-  <input type="text" id="search-input" placeholder="Поиск по названиям">
-  <label>Цена до: <span id="price-value">4000</span> ₸</label>
-  <input type="range" id="price-input" min="0" max="5000" value="4000" oninput="document.getElementById('price-value').innerText=this.value">
-  <label>Возраст:</label>
-  <label><input type="checkbox" name="age-filter" value="3">3+</label>
-  <label><input type="checkbox" name="age-filter" value="4">4+</label>
-  <label><input type="checkbox" name="age-filter" value="5">5+</label>
-  <label><input type="checkbox" name="age-filter" value="6">6+</label>
-</div>
-
-<div class="products" id="product-list"></div>
-</div>
-<footer>&copy; 2025 Kids Toys</footer>
+<div class="sidebar"><ul>
+<li>Главная</li>
+<li>Для мальчиков<ul class="subcat">
+  <li>Машинки</li><li>Роботы</li><li>Транспорт</li><li>Герои</li>
+</ul></li>
+<li>Для девочек<ul class="subcat">
+  <li>Куклы</li><li>Пони</li><li>Творчество</li><li>Подарки</li>
+</ul></li>
+<li>Скидки</li><li>Новинки</li>
+</ul></div>
+<div class="main-content">
+<div class="section"><h2>Популярное</h2><div class="products" id="popular-list"></div></div>
+<div class="section"><h2>Новинки</h2><div class="products" id="new-list"></div></div>
+<div class="section"><h2>Летние товары</h2><div class="products" id="summer-list"></div></div>
+<div class="section"><h2>Для всей семьи</h2><div class="products" id="family-list"></div></div>
+</div></div><footer>&copy; 2025 Kids Toys</footer>
+<div class="chatbot" id="chatBox"><div class="chatbot-header">Ассистент</div>
+<div class="chatbot-body" id="chatContent"></div><div class="chatbot-input">
+<input placeholder="Ваш вопрос..."><button>📤</button></div></div>
+<button class="chatbot-icon" onclick="toggleChat()">🤖</button>
 </body></html>
